@@ -1,19 +1,19 @@
 // Imports
 import chalk from "chalk";
-import inquirer from "inquirer";
+import inquirer from "inquirer"; // For user prompts
 import chalkAnimation from "chalk-animation";
-import fs from 'fs';
+import fs from 'fs'; // Interact with file system
 
 
+//helper to resolve animations
+//ms = 2000 miliseconds, after 2 seconds, the promise will resolve
 const resolveAnimations = (ms = 2000) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // Displays welcome message and instructions
 async function start() {
-    //welcome msg
+    // Welcome title
     const welcomeMsg = chalkAnimation.rainbow(`Readme.md Generator \n`);
-    //call helper
     await resolveAnimations();
-    //stop the animation
     welcomeMsg.stop();
 
     // Instructions
@@ -25,7 +25,7 @@ async function start() {
 };
 
 // Question prompts to get information from user
-const questions = [
+const questions = [ // array of object, with each object representing a question, will be used with inqurier
     {
         type: 'input',
         name: 'title',
